@@ -27,11 +27,11 @@
 
 --INFORMATIONS--(--Pour Peupler la Base de données--)
 
-INSERT INTO 'film' ('id_film', 'titre', 'date_sortie', 'duree','synopsis', 'note','affiche') VALUES
-(1, 'Star Wars Vol1', '1999-10-13', 133, NULL, NULL, 'indisponible.jpg'),
-(2, 'Indiana Jones Vol1', '1981-09-16', 116, NULL, NULL, 'indisponible.jpg'),
-(3, 'Batman Vol1', '1981-09-13', 206, NULL, NULL, 'indisponible.jpg'),
-(4, 'X-Men Vol1', '2000-08-16', 105, NULL, NULL, 'indisponible.jpg');
+INSERT INTO 'film' ('id_film', 'titre', 'date_sortie', 'duree','synopsis', 'note','affiche', 'id_realisateur') VALUES
+(1, 'Star Wars Vol1', '1999-10-13', 133, NULL, NULL, 'indisponible.jpg', 1),
+(2, 'Indiana Jones Vol1', '1981-09-16', 116, NULL, NULL, 'indisponible.jpg', 2),
+(3, 'Batman Vol1', '1981-09-13', 206, NULL, NULL, 'indisponible.jpg', 3),
+(4, 'X-Men Vol1', '2000-08-16', 105, NULL, NULL, 'indisponible.jpg', 4);
 
 --//////////////////////////////////////////////////////////////////////////////////////--
 
@@ -61,7 +61,6 @@ INSERT INTO 'realisateur' ('id_realisateur', 'id_personne') VALUES
 (3, 3),
 (4, 4);
 
-
 INSERT INTO 'acteur' ('id_acteur', 'id_personne') VALUES
 (1, 5),
 (2, 6),
@@ -78,13 +77,7 @@ INSERT INTO 'acteur' ('id_acteur', 'id_personne') VALUES
 
 --//////////////////////////////////////////////////////////////////////////////////////--
 
-INSERT INTO 'realiser' ('id_realisateur', 'id_film') VALUES
-(1, 1),
-(2, 2),
-(3, 3),
-(4, 4);
-
-INSERT INTO 'jouer' ('id_acteur', 'role_acteur', 'id_film') VALUES
+INSERT INTO 'casting' ('id_acteur', 'role_acteur', 'id_film') VALUES
 (1, 1, 1),
 (2, 2, 1),
 (3, 3, 1),
