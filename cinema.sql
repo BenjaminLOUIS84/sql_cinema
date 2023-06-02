@@ -14,7 +14,10 @@ LIMIT 1                                                                         
 
 --b. Liste des films dont la durée excède 2h15 classés par durée (du + long au + court)
 
-
+SELECT f.titre, SEC_TO_TIME(f.duree*60) AS Durée    
+FROM film f                                                                                     
+WHERE f.duree > 135
+ORDER BY Durée DESC                                                                             --ORDER BY Pour afficher par ordre décroissant        
 
 
 --c. Liste des films d’un réalisateur (en précisant l’année de sortie) 
