@@ -28,20 +28,20 @@
 --INFORMATIONS--(--Pour Peupler la Base de données--)
 
 INSERT INTO 'film' ('id_film', 'titre', 'annee_sortie', 'duree','synopsis', 'note','affiche', 'id_realisateur') VALUES
-(1, 'Star Wars Vol1', 1999, 133, NULL, NULL, 'indisponible.jpg', 1),
-(2, 'Indiana Jones Vol1', 1981, 116, NULL, NULL, 'indisponible.jpg', 2),
-(3, 'Batman Vol1', 1981, 206, NULL, NULL, 'indisponible.jpg', 3),
-(4, 'X-Men Vol1', 2000, 105, NULL, NULL, 'indisponible.jpg', 4),
-(5, 'Grand Torino', 2008, 156, NULL, NULL, 'indisponible.jpg', 5),
-(6, 'Mad Max', 1979, 133, NULL, NULL, 'indisponible.jpg', 6),
-(7, 'Légende dautomne', 1994, 220, NULL, NULL, 'indisponible.jpg', 7),
-(8, 'Braveheart', 1995, 257, NULL, NULL, 'indisponible.jpg', 8),
-(9, 'Star Wars Vol4', 1977, 201, NULL, NULL, 'indisponible.jpg', 1),
-(10, 'La liste de Schindler', 1933, 315, NULL, NULL, 'indisponible', 2),
-(11, 'Dumbo', 2019, 112, NULL, NULL, 'indisponible.jpg', 3),
-(12, 'Bullet Train', 2022, 206, NULL, NULL, 'indisponible.jpg', 9),
-(13, 'Once Upon a time...', 2019, 241, NULL, NULL, 'indisponible.jpg', 10),
-(14, 'Inglourious Basterds', 2009, 233, NULL, NULL, 'indisponible.jpg', 10),
+(1, 'Star Wars Vol1', 1999, 133, NULL, NULL, '/images/film1.jpg', 1),
+(2, 'Indiana Jones Vol1', 1981, 116, NULL, NULL, '/images/film2.jpg', 2),
+(3, 'Batman Vol1', 1981, 206, NULL, NULL, '/images/film3.jpg', 3),
+(4, 'X-Men Vol1', 2000, 105, NULL, NULL, '/images/film4.jpg', 4),
+(5, 'Grand Torino', 2008, 156, NULL, NULL, '/images/film5.jpg', 5),
+(6, 'Mad Max', 1979, 133, NULL, NULL, '/images/film6.jpg', 6),
+(7, 'Légende dautomne', 1994, 220, NULL, NULL, '/images/film7.jpg', 7),
+(8, 'Braveheart', 1995, 257, NULL, NULL, '/images/film8.jpg', 8),
+(9, 'Star Wars Vol4', 1977, 201, NULL, NULL, '/images/film9.jpg', 1),
+(10, 'La liste de Schindler', 1933, 315, NULL, NULL, '/images/film10.jpg', 2),
+(11, 'Dumbo', 2019, 112, NULL, NULL, '/images/film11.jpg', 3),
+(12, 'Bullet Train', 2022, 206, NULL, NULL, '/images/film12.jpg', 9),
+(13, 'Once Upon a time...', 2019, 241, NULL, NULL, '/images/film13.jpg', 10),
+(14, 'Inglourious Basterds', 2009, 233, NULL, NULL, '/images/film14.jpg', 10);
 
 --//////////////////////////////////////////////////////////////////////////////////////--
 
@@ -69,7 +69,7 @@ INSERT INTO 'personne' ('id_personne', 'nom', 'prenom', 'sexe', 'date_naissance'
 (21, 'Pitt', 'Brad', 'Masculin', '1963-12-18'),
 (22, 'Hopkins', 'Anthony', 'Masculin', '1937-12-31'),
 (23, 'Leitch', 'David', 'Maculin', '1975-11-16'),
-(24, 'Tarantino', 'Qunetin', 'Masculin','1963-03-27'),
+(24, 'Tarantino', 'Qunetin', 'Masculin','1963-03-27');
 
 --//////////////////////////////////////////////////////////////////////////////////////--
 
@@ -83,7 +83,7 @@ INSERT INTO 'realisateur' ('id_realisateur', 'id_personne') VALUES
 (7, 20),
 (8, 18),
 (9, 23),
-(10, 24),
+(10, 24);
 
 INSERT INTO 'acteur' ('id_acteur', 'id_personne') VALUES
 (1, 5),
@@ -101,7 +101,7 @@ INSERT INTO 'acteur' ('id_acteur', 'id_personne') VALUES
 (13, 17),
 (14, 18),
 (15, 21),
-(16, 22),
+(16, 22);
 
 
 --//////////////////////////////////////////////////////////////////////////////////////--
@@ -129,7 +129,7 @@ INSERT INTO 'casting' ('id_acteur', 'role_acteur', 'id_film') VALUES
 (7, 20, 11),
 (15, 21, 12),
 (15, 22, 13),
-(15, 23, 14),
+(15, 23, 14);
 
 INSERT INTO 'classer' ('id_film', 'genre_film') VALUES
 (1, 1),
@@ -145,7 +145,7 @@ INSERT INTO 'classer' ('id_film', 'genre_film') VALUES
 (11, 1),
 (12, 4),
 (13, 4),
-(14, 2),
+(14, 2);
 
 --//////////////////////////////////////////////////////////////////////////////////////--
 
@@ -180,7 +180,7 @@ INSERT INTO 'role_acteur' ('role_acteur', 'nom', 'prenom', 'pseudo') VALUES
 (20, 'Vandevere', 'V.A.', NULL),
 (21, NULL, NULL, 'Coccinelle'),
 (22, 'Booth', 'Cliff', NULL),
-(23, 'Raine', 'Aldo', NULL),
+(23, 'Raine', 'Aldo', NULL);
 
 
 --//////////////////////////////////////////////////////////////////////////////////////--
