@@ -2,7 +2,20 @@
 
 --a. Informations d’un film (id_film) : titre, année, durée (au format HH:MM) et réalisateur 
 
+SELECT f.id_film, f.titre, f.annee_sortie, SEC_TO_TIME(f.duree*60) AS Durée, p.prenom, p.nom    --La fonction SEC_TO_TIME() permet d’afficher des secondes dans un format : “HH:MM:SS” (heures, minutes et secondes).
+FROM film f                                                                                     --FROM permet de cibler une table --AS est un alias utile pour renomer une colonne
+INNER JOIN realisateur r                                                                        --NNER JOIN est un type de jointures très communes pour lier plusieurs tables entre-elles.
+ON r.id_realisateur = f.id_realisateur                                                          --ON Remplace WHERE et représente une condition pour filtrer l'affichage des données
+INNER JOIN personne p                                                                           --AND Permet d'ajouter une 2ème condition mais il suffit de réutiliser un second INNER JOIN ON
+ON p.id_personne = r.id_personne 
+LIMIT 1                                                                                         --LIMIT permet d'afficher la première référence
+
+
+
 --b. Liste des films dont la durée excède 2h15 classés par durée (du + long au + court)
+
+
+
 
 --c. Liste des films d’un réalisateur (en précisant l’année de sortie) 
 
@@ -27,21 +40,21 @@
 
 --INFORMATIONS--(--Pour Peupler la Base de données--)
 
-INSERT INTO 'film' ('id_film', 'titre', 'annee_sortie', 'duree','synopsis', 'note','affiche', 'id_realisateur') VALUES
-(1, 'Star Wars Vol1', 1999, 133, NULL, NULL, '/images/film1.jpg', 1),
-(2, 'Indiana Jones Vol1', 1981, 116, NULL, NULL, '/images/film2.jpg', 2),
-(3, 'Batman Vol1', 1981, 206, NULL, NULL, '/images/film3.jpg', 3),
-(4, 'X-Men Vol1', 2000, 105, NULL, NULL, '/images/film4.jpg', 4),
-(5, 'Grand Torino', 2008, 156, NULL, NULL, '/images/film5.jpg', 5),
-(6, 'Mad Max', 1979, 133, NULL, NULL, '/images/film6.jpg', 6),
-(7, 'Légende dautomne', 1994, 220, NULL, NULL, '/images/film7.jpg', 7),
-(8, 'Braveheart', 1995, 257, NULL, NULL, '/images/film8.jpg', 8),
-(9, 'Star Wars Vol4', 1977, 201, NULL, NULL, '/images/film9.jpg', 1),
-(10, 'La liste de Schindler', 1933, 315, NULL, NULL, '/images/film10.jpg', 2),
-(11, 'Dumbo', 2019, 112, NULL, NULL, '/images/film11.jpg', 3),
-(12, 'Bullet Train', 2022, 206, NULL, NULL, '/images/film12.jpg', 9),
-(13, 'Once Upon a time...', 2019, 241, NULL, NULL, '/images/film13.jpg', 10),
-(14, 'Inglourious Basterds', 2009, 233, NULL, NULL, '/images/film14.jpg', 10);
+INSERT INTO film (id_film, titre, annee_sortie, duree, synopsis, note, affiche, id_realisateur) VALUES
+(1, 'Star Wars Vol1', 1999, 133, 'Dans une galaxie une entre les Chevaliers Jedi et les Seigneurs noirs des Sith, personnes sensibles à la Force.', 6.2, 'film1.jpg', 1),
+(2, 'Indiana Jones Vol1', 1981, 116, 'Pérou, 1936. Le professeur Henry Walton Jones Jr (dit « Indiana », ou « Indy »), un éminent archéologue américain et expert en occultisme, est sur le point de mettre la main sur une idole Chachapoyan.', 7.7, 'film2.jpg', 2),
+(3, 'Batman Vol1', 1981, 206, 'Enfant, le milliardaire Bruce Wayne voit ses parents assassinés par un voleur des rues, qui en voulait au collier de perles de sa mère.', 7.1, 'film3.jpg', 3),
+(4, 'X-Men Vol1', 2000, 105, '1944, dans un camp de concentration. Séparé par la force de ses parents, le jeune Erik Magnus Lehnsherr se découvre ses pouvoirs sous le coup de la colère : il peut contrôler les métaux.', 6.5, 'film4.jpg', 4),
+(5, 'Grand Torino', 2008, 156, 'Walt Kowalski, vétéran de la guerre de Corée, raciste et irascible, vient de perdre sa femme. Une nuit, il surprend Thao, un de ses jeunes voisins Hmong, en train de voler sa Ford Gran Torino de 1972.', 7.7, 'film5.jpg', 5),
+(6, 'Mad Max', 1979, 133, 'Un criminel, Montazano, membre du gang de motards « Aigles de la route » , fuit en tuant un agent de la police routière.', 6.8, 'film6.jpg', 6),
+(7, 'Légende dautomne', 1994, 220, 'Dans le Montana dans les années 1960, un vieil indien raconte les secrets de la famille Ludlow.', 8.3, 'film7.jpg', 7),
+(8, 'Braveheart', 1995, 257, 'Au XIIIe siècle, le roi Edouard Ier sempare du trône dEcosse et instaure un régime répressif.', 8, 'film8.jpg', 8),
+(9, 'Star Wars Vol4', 1977, 201, 'Dans une galaxie une guerre entre les Chevaliers Jedi et les Seigneurs noirs des Sith, personnes sensibles à la Force.', 7.7, 'film9.jpg', 1),
+(10, 'La liste de Schindler', 1933, 315, 'En 1939, les Allemands installés en Pologne, regroupent les juifs dans des ghettos dans le but de les utiliser comme des esclaves. ', 8.1, 'film10.jpg', 2),
+(11, 'Dumbo', 2019, 112, '1919, dans le Missouri. Holt Farrier, ancien cavalier de cirque, mancho, revient au cirque Medici Brothers, dirigé par Max Medici, après la Première Guerre mondiale. ', 5.8, 'film11.jpg', 3),
+(12, 'Bullet Train', 2022, 206, 'Coccinelle est un assassin malchanceux et particulièrement déterminé à accomplir sa nouvelle mission paisiblement après que la plupart des ses missions aient déraillé.', 6.5, 'film12.jpg', 9),
+(13, 'Once Upon a time...', 2019, 241,'En 1969, la star de télévision Rick Dalton et le cascadeur Cliff Booth, sa doublure de longue date, poursuivent leurs carrières au sein d’une industrie qui a changé. ', 7.2, 'film13.jpg', 10),
+(14, 'Inglourious Basterds', 2009, 233, 'Dans la France occupée de 1940, Shosanna Dreyfus assiste à la mort de sa famille tombée entre les mains du colonel nazi Hans Landa.', 7.4, 'film14.jpg', 10);
 
 --//////////////////////////////////////////////////////////////////////////////////////--
 
