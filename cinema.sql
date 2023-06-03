@@ -79,9 +79,22 @@ ON r.id_personne = p.id_personne
 
 --i. Liste des films qui ont moins de 5 ans (classés du plus récent au plus ancien)
 
+SELECT f.titre, f.annee_sortie
+FROM film f
+WHERE f.annee_sortie > 2018
+ORDER BY f.annee_sortie DESC
+
 --j. Nombre d’hommes et de femmes parmi les acteurs
 
+SELECT COUNT(a.id_acteur) AS Nombre_Acteur, p.sexe
+FROM personne p
+INNER JOIN acteur a
+ON a.id_personne = p.id_personne
+GROUP BY p.sexe
+
 --k. Liste des acteurs ayant plus de 50 ans (âge révolu et non révolu)
+
+
 
 --l. Acteurs ayant joué dans 3 films ou plus
 
@@ -129,7 +142,7 @@ INSERT INTO 'personne' ('id_personne', 'nom', 'prenom', 'sexe', 'date_naissance'
 (20, 'Zwick', 'Edward', 'Masculin', '1952-10-08'),
 (21, 'Pitt', 'Brad', 'Masculin', '1963-12-18'),
 (22, 'Hopkins', 'Anthony', 'Masculin', '1937-12-31'),
-(23, 'Leitch', 'David', 'Maculin', '1975-11-16'),
+(23, 'Leitch', 'David', 'Masculin', '1975-11-16'),
 (24, 'Tarantino', 'Qunetin', 'Masculin','1963-03-27');
 
 --//////////////////////////////////////////////////////////////////////////////////////--
