@@ -10,21 +10,35 @@ INNER JOIN personne p                                                           
 ON p.id_personne = r.id_personne 
 LIMIT 1                                                                                         --LIMIT permet d'afficher la première référence
 
-
-
 --b. Liste des films dont la durée excède 2h15 classés par durée (du + long au + court)
 
-SELECT f.titre, SEC_TO_TIME(f.duree*60) AS Durée    
+SELECT f.titre, SEC_TO_TIME(f.duree*60) AS Durée                                                --SELECT Permet de retourner des enregistrements dans un tableau de résultat. Cette commande peut sélectionner une ou plusieurs colonnes d’une table.
 FROM film f                                                                                     
 WHERE f.duree > 135
 ORDER BY Durée DESC                                                                             --ORDER BY Pour afficher par ordre décroissant        
 
-
 --c. Liste des films d’un réalisateur (en précisant l’année de sortie) 
+
+SELECT f.titre, f.annee_sortie, p.nom, p.prenom
+FROM film f
+INNER JOIN realisateur r
+ON f.id_realisateur = r.id_realisateur
+INNER JOIN personne p
+ON r.id_realisateur = p.id_personne
+AND r.id_realisateur = 1
 
 --d. Nombre de films par genre (classés dans l’ordre décroissant)
 
+SELECT g.type, COUNT(c.id_film) AS Nombre_film                                                  --La fonction COUNT() permet de compter le nombre de films, il est d'usage de compter les id plutôt que les noms
+FROM genre_film g
+INNER JOIN classer c
+ON g.genre_film = c.genre_film
+GROUP BY g.type                                                                                 --Lorsqu'il y a une fonction dans la commande SELECT et deux tables il faut faire une jointure avec INNER JOIN 
+ORDER BY Nombre_film DESC                                                                       --et il faut également utiliser un GROUP BY, il est d'usage de grouper les id plutôt que les noms                                
+
 --e. Nombre de films par réalisateur (classés dans l’ordre décroissant)
+
+
 
 --f. Casting d’un film en particulier (id_film) : nom, prénom des acteurs + sexe
 
