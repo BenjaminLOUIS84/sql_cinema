@@ -59,6 +59,15 @@ AND c.id_film = 1
 
 --g. Films tournés par un acteur en particulier (id_acteur) avec leur rôle et l’année de sortie (du film le plus récent au plus ancien)
 
+SELECT c.id_acteur, r.nom, r.prenom, r.pseudo, f.titre, f.annee_sortie
+FROM casting c
+INNER JOIN role_acteur r
+ON r.role_acteur = c.role_acteur
+INNER JOIN film f
+ON f.id_film = c.id_film
+AND c.id_acteur = 2
+ORDER BY f.annee_sortie DESC
+
 --h. Liste des personnes qui sont à la fois acteurs et réalisateurs
 
 --i. Liste des films qui ont moins de 5 ans (classés du plus récent au plus ancien)
