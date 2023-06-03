@@ -38,9 +38,24 @@ ORDER BY Nombre_film DESC                                                       
 
 --e. Nombre de films par réalisateur (classés dans l’ordre décroissant)
 
-
+SELECT p.nom, p.prenom, COUNT(f.id_film) AS Nombre_film
+FROM realisateur r
+INNER JOIN film f
+ON f.id_realisateur = r.id_realisateur
+INNER JOIN personne p
+ON r.id_personne = p.id_personne
+GROUP BY r.id_realisateur
+ORDER BY Nombre_film DESC
 
 --f. Casting d’un film en particulier (id_film) : nom, prénom des acteurs + sexe
+
+SELECT c.id_film, p.nom, p.prenom, p.sexe
+FROM casting c
+INNER JOIN acteur a
+ON a.id_acteur = c.id_acteur
+INNER JOIN personne p
+ON p.id_personne = a.id_personne
+AND c.id_film = 1
 
 --g. Films tournés par un acteur en particulier (id_acteur) avec leur rôle et l’année de sortie (du film le plus récent au plus ancien)
 
