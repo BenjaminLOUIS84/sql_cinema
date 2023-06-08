@@ -133,31 +133,6 @@ INSERT INTO film (id_film, titre, annee_sortie, duree, synopsis, note, affiche, 
 (13, 'Once Upon a time...', 2019, 181,'En 1969, la star de télévision Rick Dalton et le cascadeur Cliff Booth, sa doublure de longue date, poursuivent leurs carrières au sein d’une industrie qui a changé. ', 7.2, 'film13.jpg', 10),
 (14, 'Inglourious Basterds', 2009, 153, 'Dans la France occupée de 1940, Shosanna Dreyfus assiste à la mort de sa famille tombée entre les mains du colonel nazi Hans Landa.', 7.4, 'film14.jpg', 10);
 
---Créer une Table pour insérer des images (les affiches)
-
-CREATE TABLE image(
-	affiche BLOB
-);
-
---Insérer les images dans la table
-
-INSERT INTO image (affiche) VALUES
-(LOAD_FILE('/images/film1.jpg')),
-(LOAD_FILE('/images/film2.jpg')),
-(LOAD_FILE('/images/film3.jpg')),
-(LOAD_FILE('/images/film4.jpg')),
-(LOAD_FILE('/images/film5.jpg')),
-(LOAD_FILE('/images/film6.jpg')),
-(LOAD_FILE('/images/film7.jpg')),
-(LOAD_FILE('/images/film8.jpg')),
-(LOAD_FILE('/images/film9.jpg')),
-(LOAD_FILE('/images/film10.jpg')),
-(LOAD_FILE('/images/film11.jpg')),
-(LOAD_FILE('/images/film12.jpg')),
-(LOAD_FILE('/images/film13.jpg')),
-(LOAD_FILE('/images/film14.jpg')),
-(LOAD_FILE('/images/film15.jpg'));
-
 
 --//////////////////////////////////////////////////////////////////////////////////////--
 
@@ -185,7 +160,7 @@ INSERT INTO 'personne' ('id_personne', 'nom', 'prenom', 'sexe', 'date_naissance'
 (21, 'Pitt', 'Brad', 'Masculin', '1963-12-18'),
 (22, 'Hopkins', 'Anthony', 'Masculin', '1937-12-31'),
 (23, 'Leitch', 'David', 'Masculin', '1975-11-16'),
-(24, 'Tarantino', 'Qunetin', 'Masculin','1963-03-27');
+(24, 'Tarantino', 'Quentin', 'Masculin','1963-03-27');
 
 --//////////////////////////////////////////////////////////////////////////////////////--
 
